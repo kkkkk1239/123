@@ -1,0 +1,28 @@
+姓名：魏金斯
+在：
+  workflow_dispatch：
+  日程：
+    ＃代表国际标准时间23点0分，++ 8小时，代表北京时间上午7点运行
+    -cron：'0 23 * * *'
+工作：
+＃将工作流程中运行的所有作业组合在一起
+  建造：
+  ＃定义名为构建的作业。的作业。
+    运行：ubuntu-latest
+    步骤：
+      -用途：操作/结帐@v2
+    
+      -名称：设置python 3.9
+        用途：action/setup-python@v2
+        和：
+          Python-version：3.9.1
+- 名称：设置时区
+        运行：|
+          cp/usr/share/Zoneinfo/Asia/shanghai/etc/localtime
+      -名称：安装PIP软件包
+        运行：|
+          python -m pip安装 -升级 -pip
+          pip3 install -r sumpliont.txt
+      -名称：Weixin
+        运行：|
+          python3 main.py
